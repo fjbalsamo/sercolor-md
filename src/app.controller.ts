@@ -6,7 +6,7 @@ import {
   HttpException,
 } from '@nestjs/common';
 import axios, { AxiosInstance } from 'axios';
-import * as xmlJS from 'xml-js';
+import xmlToJson from './xml2json';
 import obtenerClientesXML from './api/obtenerClientes.xml';
 import testingXML from './api/testing.xml';
 
@@ -33,12 +33,8 @@ export class AppController {
         obtenerClientesXML,
       );
       return {
-        data: xmlJS.xml2json(data, {
-          compact: true,
-          spaces: 4,
-          nativeType: true,
-        }),
         status,
+        data: xmlToJson(data),
       };
     } catch (error) {
       console.log(error);
