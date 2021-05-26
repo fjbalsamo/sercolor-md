@@ -9,6 +9,7 @@ import axios, { AxiosInstance } from 'axios';
 import xmlToJson from './xml2json';
 import obtenerClientesXML from './api/obtenerClientes.xml';
 import testingXML from './api/testing.xml';
+import { ObtenerClientesDTO } from './api/obtenerClientes.dto';
 
 @Controller()
 export class AppController {
@@ -32,9 +33,11 @@ export class AppController {
         '/ServicioCCOCliente.asmx',
         obtenerClientesXML,
       );
+      const customers = xmlToJson<ObtenerClientesDTO>(data);
       return {
         status,
-        data: xmlToJson(data),
+        data: customers['soap:Envelope']['soap:Body'].ObtenerClientesResponse
+          .ObtenerClientesResult.Clientes.Cliente,
       };
     } catch (error) {
       console.log(error);
