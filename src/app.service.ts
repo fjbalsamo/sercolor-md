@@ -31,6 +31,7 @@ export class AppService {
       });
       return { data: JSON.parse(json), status: status };
     } catch (error) {
+      console.log(error);
       return { data: null, status: HttpStatus.INTERNAL_SERVER_ERROR };
     }
   }
