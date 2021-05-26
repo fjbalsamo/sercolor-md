@@ -6,6 +6,7 @@ import {
   HttpException,
 } from '@nestjs/common';
 import axios, { AxiosInstance } from 'axios';
+import * as xmlJS from 'xml-js';
 import obtenerClientesXML from './api/obtenerClientes.xml';
 import testingXML from './api/testing.xml';
 
@@ -31,7 +32,14 @@ export class AppController {
         '/ServicioCCOCliente.asmx',
         obtenerClientesXML,
       );
-      return { data, status };
+      return {
+        data: xmlJS.xml2json(data, {
+          compact: true,
+          spaces: 4,
+          nativeType: true,
+        }),
+        status,
+      };
     } catch (error) {
       console.log(error);
       throw new HttpException(error, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -44,7 +52,7 @@ export class AppController {
     try {
       const { data, status } = await this.xmlRequest.post<string>(
         '/ServicioCCOCliente.asmx',
-        obtenerClientesXML,
+        testingXML,
       );
       return { data, status };
     } catch (error) {
