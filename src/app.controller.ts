@@ -7,6 +7,7 @@ import {
 } from '@nestjs/common';
 import axios, { AxiosInstance } from 'axios';
 import obtenerClientesXML from './api/obtenerClientes.xml';
+import testingXML from './api/testing.xml';
 
 @Controller()
 export class AppController {
@@ -25,6 +26,20 @@ export class AppController {
   @HttpCode(HttpStatus.OK)
   @Get('/customers')
   async getCustomes(): Promise<{ data: any; status: number }> {
+    try {
+      const { data, status } = await this.xmlRequest.post<string>(
+        '/ServicioCCOCliente.asmx',
+        obtenerClientesXML,
+      );
+      return { data, status };
+    } catch (error) {
+      throw new HttpException(error, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+  }
+
+  @HttpCode(HttpStatus.OK)
+  @Get('/testing')
+  async runTesting(): Promise<{ data: any; status: number }> {
     try {
       const { data, status } = await this.xmlRequest.post<string>(
         '/ServicioCCOCliente.asmx',
