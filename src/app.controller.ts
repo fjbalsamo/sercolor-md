@@ -3,31 +3,34 @@ import {
   Get,
   HttpCode,
   HttpStatus,
-  HttpService,
   HttpException,
 } from '@nestjs/common';
+import axios, { AxiosInstance } from 'axios';
 import obtenerClientesXML from './api/obtenerClientes.xml';
 
 @Controller()
 export class AppController {
   private platformBaseURL = 'http://localhost:8080';
+  private xmlRequest: AxiosInstance;
 
-  constructor(private readonly httpService: HttpService) {}
+  constructor() {
+    this.xmlRequest = axios.create({
+      baseURL: 'http://localhost:8080',
+      headers: {
+        'Content-Type': 'text/xml',
+      },
+    });
+  }
 
   @HttpCode(HttpStatus.OK)
   @Get('/customers')
-  async getCustomes(): Promise<any> {
+  async getCustomes(): Promise<{ data: any; status: number }> {
     try {
-      const observable = await this.httpService.post(
-        `${this.platformBaseURL}/ServicioCCOCliente.asmx`,
+      const { data, status } = await this.xmlRequest.post<string>(
+        '/ServicioCCOCliente.asmx',
         obtenerClientesXML,
-        {
-          headers: {
-            'Context-Type': 'text/xml; charset=utf-8',
-          },
-        },
       );
-      return await observable.toPromise();
+      return { data, status };
     } catch (error) {
       throw new HttpException(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
