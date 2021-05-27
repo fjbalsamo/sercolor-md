@@ -33,6 +33,7 @@ export class AppController {
       const response = await this.appService.requestCustomers();
       return response;
     } catch (error) {
+      console.log(error);
       throw new HttpException(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
@@ -44,6 +45,7 @@ export class AppController {
       const response = await this.appService.requestArticles();
       return response;
     } catch (error) {
+      console.log(error);
       throw new HttpException(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
