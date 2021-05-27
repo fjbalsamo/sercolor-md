@@ -3,7 +3,7 @@ import axios, { AxiosInstance } from 'axios';
 import * as fs from 'fs';
 import * as path from 'path';
 import xml2json from './xml2json';
-import { ObtenerClientesDTO } from './api/obtenerClientes.dto';
+import { ObtenerClientesDTO } from './dto/obtenerClientes.dto';
 import sanitizeCustomer, {
   ICustomerSanitized,
 } from './parser/sanitize.customer';
