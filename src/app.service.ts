@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import axios, { AxiosInstance } from 'axios';
-import fs from 'fs';
+import * as fs from 'fs';
 import xml2json from './xml2json';
 
 @Injectable()
