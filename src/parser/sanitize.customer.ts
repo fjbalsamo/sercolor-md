@@ -1,6 +1,6 @@
 import { ObtenerClientesDTO } from '../api/obtenerClientes.dto';
 
-interface ICustomerSanitized {
+export interface ICustomerSanitized {
   codigo: string;
   nombre: string;
   mail: string;

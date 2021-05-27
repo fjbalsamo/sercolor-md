@@ -3,6 +3,10 @@ import axios, { AxiosInstance } from 'axios';
 import * as fs from 'fs';
 import * as path from 'path';
 import xml2json from './xml2json';
+import { ObtenerClientesDTO } from './api/obtenerClientes.dto';
+import sanitizeCustomer, {
+  ICustomerSanitized,
+} from './parser/sanitize.customer';
 
 @Injectable()
 export class AppService {
@@ -18,7 +22,7 @@ export class AppService {
 
   async requestArticles(): Promise<any> {
     const xml = fs.readFileSync(
-      path.join(__dirname, './api/obtenerArticulos.xml'),
+      path.join(__dirname, '../files/obtenerArticulos.xml'),
       'utf-8',
     );
     const { data } = await this.axiosInstance.post<string>(
@@ -29,16 +33,17 @@ export class AppService {
     return json;
   }
 
-  async requestCustomers(): Promise<any> {
+  async requestCustomers(): Promise<ICustomerSanitized[]> {
     const xml = fs.readFileSync(
-      path.join(__dirname, './api/obtenerClientes.xml'),
+      path.join(__dirname, '../files/obtenerClientes.xml'),
       'utf-8',
     );
     const { data } = await this.axiosInstance.post<string>(
       '/ServicioCCOCliente.asmx',
       xml,
     );
-    const json = xml2json<any>(data);
-    return json;
+    const json = xml2json<ObtenerClientesDTO>(data);
+    const customers = sanitizeCustomer(json);
+    return customers;
   }
 }
