@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+        <ObtenerArticulos xmlns="http://plataforma.net.ar/">
+            <AtributosVisibles>
+                <ArticuloAtributos>ArticuloID</ArticuloAtributos>
+                <ArticuloAtributos>Nombre</ArticuloAtributos>
+                <ArticuloAtributos>ArticuloEmpresa</ArticuloAtributos>
+                <ArticuloAtributos>ArticuloParaImpresion</ArticuloAtributos>
+                <ArticuloAtributos>TipoDeArticulo</ArticuloAtributos>
+                <ArticuloAtributos>Descripcion</ArticuloAtributos>
+                <ArticuloAtributos>SeControlaStock</ArticuloAtributos>
+                <ArticuloAtributos>SeAdministraConPartidas</ArticuloAtributos>
+                <ArticuloAtributos>SeAdministraConNumerosDeSerie</ArticuloAtributos>
+                <ArticuloAtributos>SeAdministraPorTalles</ArticuloAtributos>
+                <ArticuloAtributos>SeVende</ArticuloAtributos>
+                <ArticuloAtributos>SeCompra</ArticuloAtributos>
+                <ArticuloAtributos>FechaDeAlta</ArticuloAtributos>
+                <ArticuloAtributos>FechaDeBaja</ArticuloAtributos>
+                <ArticuloAtributos>SeProduce</ArticuloAtributos>
+                <ArticuloAtributos>Talle</ArticuloAtributos>
+                <ArticuloAtributos>Color</ArticuloAtributos>
+                <ArticuloAtributos>Largo</ArticuloAtributos>
+                <ArticuloAtributos>Ancho</ArticuloAtributos>
+                <ArticuloAtributos>Alto</ArticuloAtributos>
+                <ArticuloAtributos>TalleNombre</ArticuloAtributos>
+                <ArticuloAtributos>ColorNombre</ArticuloAtributos>
+            </AtributosVisibles>
+            <Filtros></Filtros>
+        </ObtenerArticulos>
+    </soap:Body>
+</soap:Envelope>
