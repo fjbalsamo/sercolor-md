@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import axios, { AxiosInstance } from 'axios';
 import * as fs from 'fs';
+import * as path from 'path';
 import xml2json from './xml2json';
 
 @Injectable()
@@ -16,7 +17,10 @@ export class AppService {
   }
 
   async requestArticles(): Promise<any> {
-    const xml = fs.readFileSync('./api/obtenerArticulos.xml', 'utf-8');
+    const xml = fs.readFileSync(
+      path.join(__dirname, './api/obtenerArticulos.xml'),
+      'utf-8',
+    );
     const { data } = await this.axiosInstance.post<string>(
       '/ServicioSTOCArticulo.asmx',
       xml,
@@ -26,7 +30,10 @@ export class AppService {
   }
 
   async requestCustomers(): Promise<any> {
-    const xml = fs.readFileSync('./api/obtenerClientes.xml', 'utf-8');
+    const xml = fs.readFileSync(
+      path.join(__dirname, './api/obtenerClientes.xml'),
+      'utf-8',
+    );
     const { data } = await this.axiosInstance.post<string>(
       '/ServicioCCOCliente.asmx',
       xml,
