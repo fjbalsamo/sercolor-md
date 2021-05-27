@@ -2,7 +2,7 @@ interface InnerCustomerAttr {
   _text?: string;
 }
 
-interface AddressCustomerAttr {
+export interface AddressCustomerAttr {
   _attributes: {
     DomicilioID: string;
   };
