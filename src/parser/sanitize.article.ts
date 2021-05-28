@@ -34,7 +34,9 @@ export const sanitizeArticle = (
     return {
       codigo: a._attributes.ArticuloID,
       grupo: getArticleGroup(a),
-      descripcion: a.Descripcion._text || '',
+      descripcion: (a.Descripcion._text || '')
+        .replace('\n', '')
+        .replace('\t', ' '),
       ancho: 0,
       rendimiento: 0,
       estado: 'OK',
