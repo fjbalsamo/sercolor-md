@@ -35,25 +35,16 @@ export default (customers: ObtenerClientesDTO): ICustomerSanitized[] => {
       nombre: cli.Nombre._text || '',
       mail: cli.Email._text || '',
       direccion: cli.Domicilio._text || '',
-      direcciones_retiro_mercaderia: [
-        {
-          // this IAddressCustomer object correspond at main address information
-          domicilioID: '', // this object does not have a domicilioID
-          domicilio: cli.Domicilio._text || '',
-          localidad: cli.Localidad._text || '',
-          codigoPostal: cli.CodigoPostal._text || '',
-          provincia: cli.ProvinciaNombre._text || '',
-          pais: cli.PaisNombre._text || '',
-        },
-        // ...cli.Domicilios.Domicilio.map((d) => ({
-        //   domicilioID: d._attributes.DomicilioID,
-        //   domicilio: d.Domicilio._text || '',
-        //   localidad: d.Localidad._text || '',
-        //   codigoPostal: d.CodigoPostal._text || '',
-        //   provincia: d.ProvinciaNombre._text || '',
-        //   pais: d.PaisNombre._text || '',
-        // })),
-      ],
+      direcciones_retiro_mercaderia: cli.Domicilios.Domicilio.map((d) => {
+        return {
+          domicilioID: d._attributes.DomicilioID,
+          domicilio: d.Domicilio._text || '',
+          localidad: d.Localidad._text || '',
+          codigoPostal: d.CodigoPostal._text || '',
+          provincia: d.ProvinciaNombre._text || '',
+          pais: d.PaisNombre._text || '',
+        };
+      }),
       telefono: cli.Telefono._text || '',
       cliente: cli.NombreLegal._text || '',
       localidad: cli.Localidad._text || '',
