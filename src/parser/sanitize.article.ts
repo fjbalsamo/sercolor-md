@@ -96,9 +96,9 @@ export default (
   const colorants = articles.filter((a) => a.grupo === 'COLORANTE');
   const others = articles.filter((a) => a.grupo === 'OTRO');
   return {
-    colors,
-    supplies,
-    colorants,
-    others,
+    colors: colors.sort((a, b) => (a.color > b.color ? 1 : -1)),
+    supplies: supplies.sort((a, b) => (a.codigo > b.codigo ? 1 : -1)),
+    colorants: colorants.sort((a, b) => (a.codigo > b.codigo ? 1 : -1)),
+    others: others.sort((a, b) => (a.codigo > b.codigo ? 1 : -1)),
   };
 };
