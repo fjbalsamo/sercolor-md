@@ -17,9 +17,9 @@ export interface IColorSanitized {
 }
 
 const getArticleGroup = (article: IArticulo): articleGroup => {
-  const name: string = article.Nombre._text || '';
-  if (name.toLocaleLowerCase().includes('insumo')) return 'INSUMO';
-  if (name.toLocaleLowerCase().includes('colorante')) return 'COLORANTE';
+  const type: string = article.TipoDeArticulo._text || '';
+  if (type.toLocaleLowerCase().includes('insumo')) return 'INSUMO';
+  if (type.toLocaleLowerCase().includes('colorante')) return 'COLORANTE';
   return 'OTRO';
 };
 
