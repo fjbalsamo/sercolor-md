@@ -30,8 +30,10 @@ export interface ObtenerArticulosDTO {
   'soap:Envelope': {
     'soap:Body': {
       ObtenerArticulosResponse: {
-        Articulos: {
-          Articulo: IArticulo[];
+        ObtenerArticulosResult: {
+          Articulos: {
+            Articulo: IArticulo[];
+          };
         };
       };
     };

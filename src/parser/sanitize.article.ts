@@ -27,7 +27,8 @@ export const sanitizeArticle = (
   articles: ObtenerArticulosDTO,
 ): IArticleSanitized[] => {
   const { Articulo } =
-    articles['soap:Envelope']['soap:Body'].ObtenerArticulosResponse.Articulos;
+    articles['soap:Envelope']['soap:Body'].ObtenerArticulosResponse
+      .ObtenerArticulosResult.Articulos;
   const articlesSanitized: IArticleSanitized[] = Articulo.map((a) => {
     return {
       codigo: a._attributes.ArticuloID,
