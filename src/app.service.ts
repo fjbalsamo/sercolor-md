@@ -22,7 +22,7 @@ export class AppService {
 
   async requestArticles(): Promise<any> {
     const xml = fs.readFileSync(
-      path.join(__dirname, '../files/obtenerArticulos.xml'),
+      path.join(__dirname, '../files/obtenerArticulos.min.xml'),
       'utf-8',
     );
     const { data } = await this.axiosInstance.post<string>(

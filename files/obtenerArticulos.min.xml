@@ -11,22 +11,18 @@
                 <ArticuloAtributos>ArticuloParaImpresion</ArticuloAtributos>
                 <ArticuloAtributos>TipoDeArticulo</ArticuloAtributos>
                 <ArticuloAtributos>Descripcion</ArticuloAtributos>
-                <ArticuloAtributos>SeControlaStock</ArticuloAtributos>
-                <ArticuloAtributos>SeAdministraConPartidas</ArticuloAtributos>
-                <ArticuloAtributos>SeAdministraConNumerosDeSerie</ArticuloAtributos>
-                <ArticuloAtributos>SeAdministraPorTalles</ArticuloAtributos>
-                <ArticuloAtributos>SeVende</ArticuloAtributos>
-                <ArticuloAtributos>SeCompra</ArticuloAtributos>
-                <ArticuloAtributos>FechaDeAlta</ArticuloAtributos>
-                <ArticuloAtributos>FechaDeBaja</ArticuloAtributos>
-                <ArticuloAtributos>SeProduce</ArticuloAtributos>
-                <ArticuloAtributos>Talle</ArticuloAtributos>
-                <ArticuloAtributos>Color</ArticuloAtributos>
-                <ArticuloAtributos>Largo</ArticuloAtributos>
-                <ArticuloAtributos>Ancho</ArticuloAtributos>
-                <ArticuloAtributos>Alto</ArticuloAtributos>
-                <ArticuloAtributos>TalleNombre</ArticuloAtributos>
-                <ArticuloAtributos>ColorNombre</ArticuloAtributos>
+                <ArticuloAtributos>Clasificacion1ArticulosNombre</ArticuloAtributos>
+                <ArticuloAtributos>Clasificacion1Articulos</ArticuloAtributos>
+                <ArticuloAtributos>Clasificacion2ArticulosNombre</ArticuloAtributos>
+                <ArticuloAtributos>Clasificacion2Articulos</ArticuloAtributos>
+                <ArticuloAtributos>Clasificacion3ArticulosNombre</ArticuloAtributos>
+                <ArticuloAtributos>Clasificacion3Articulos</ArticuloAtributos>
+                <ArticuloAtributos>Clasificacion4ArticulosNombre</ArticuloAtributos>
+                <ArticuloAtributos>Clasificacion4Articulos</ArticuloAtributos>
+                <ArticuloAtributos>Clasificacion5ArticulosNombre</ArticuloAtributos>
+                <ArticuloAtributos>Clasificacion5Articulos</ArticuloAtributos>
+                <ArticuloAtributos>Clasificacion6ArticulosNombre</ArticuloAtributos>
+                <ArticuloAtributos>Clasificacion6Articulos</ArticuloAtributos>
             </AtributosVisibles>
             <Filtros></Filtros>
         </ObtenerArticulos>

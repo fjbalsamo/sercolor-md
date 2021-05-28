@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:wsp="http://wsplataforma.intecsoft.com.ar/">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <wsp:ObtenerClientes>
+            <wsp:AtributosVisibles>
+                <wsp:ClienteAtributos>ClienteID</wsp:ClienteAtributos>
+                <wsp:ClienteAtributos>Nombre</wsp:ClienteAtributos>
+                <wsp:ClienteAtributos>NombreLegal</wsp:ClienteAtributos>                
+                <wsp:ClienteAtributos>Domicilio</wsp:ClienteAtributos>
+                <wsp:ClienteAtributos>Localidad</wsp:ClienteAtributos>
+                <wsp:ClienteAtributos>CodigoPostal</wsp:ClienteAtributos>                
+                <wsp:ClienteAtributos>ProvinciaNombre</wsp:ClienteAtributos>                
+                <wsp:ClienteAtributos>PaisNombre</wsp:ClienteAtributos>
+                <wsp:ClienteAtributos>Telefono</wsp:ClienteAtributos>                
+                <wsp:ClienteAtributos>Email</wsp:ClienteAtributos>                
+                <wsp:ClienteAtributos>ClaveTributaria</wsp:ClienteAtributos>
+                <wsp:ClienteAtributos>Domicilios</wsp:ClienteAtributos>
+            </wsp:AtributosVisibles>
+            <wsp:Filtros></wsp:Filtros>
+        </wsp:ObtenerClientes>
+    </soapenv:Body>
+</soapenv:Envelope>
