@@ -8,7 +8,9 @@ import { ObtenerArticulosDTO } from './dto/obtenerArticulos.dto';
 import sanitizeCustomer, {
   ICustomerSanitized,
 } from './parser/sanitize.customer';
-import { sanitizeArticle, IArticleSanitized } from './parser/sanitize.article';
+import sanitizeArticle, {
+  IArticleSanitizedGroup,
+} from './parser/sanitize.article';
 
 @Injectable()
 export class AppService {
@@ -22,7 +24,7 @@ export class AppService {
     });
   }
 
-  async requestArticles(): Promise<IArticleSanitized[]> {
+  async requestArticles(): Promise<IArticleSanitizedGroup> {
     const xml = fs.readFileSync(
       path.join(__dirname, '../files/obtenerArticulos.min.xml'),
       'utf-8',
