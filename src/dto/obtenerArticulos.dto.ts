@@ -3,6 +3,9 @@ interface InnerArticleAttr {
 }
 
 export interface IArticulo {
+  _attributes: {
+    ArticuloID: string;
+  };
   ArticuloID: InnerArticleAttr;
   Nombre: InnerArticleAttr;
   ArticuloEmpresa: InnerArticleAttr;
@@ -21,4 +24,16 @@ export interface IArticulo {
   Clasificacion5Articulos: InnerArticleAttr;
   Clasificacion6ArticulosNombre: InnerArticleAttr;
   Clasificacion6Articulos: InnerArticleAttr;
+}
+
+export interface ObtenerArticulosDTO {
+  'soap:Envelope': {
+    'soap:Body': {
+      ObtenerArticulosResponse: {
+        Articulos: {
+          Articulo: IArticulo[];
+        };
+      };
+    };
+  };
 }

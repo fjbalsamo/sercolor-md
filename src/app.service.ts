@@ -4,9 +4,11 @@ import * as fs from 'fs';
 import * as path from 'path';
 import xml2json from './xml2json';
 import { ObtenerClientesDTO } from './dto/obtenerClientes.dto';
+import { ObtenerArticulosDTO } from './dto/obtenerArticulos.dto';
 import sanitizeCustomer, {
   ICustomerSanitized,
 } from './parser/sanitize.customer';
+import { sanitizeArticle, IArticleSanitized } from './parser/sanitize.article';
 
 @Injectable()
 export class AppService {
@@ -20,7 +22,7 @@ export class AppService {
     });
   }
 
-  async requestArticles(): Promise<any> {
+  async requestArticles(): Promise<IArticleSanitized[]> {
     const xml = fs.readFileSync(
       path.join(__dirname, '../files/obtenerArticulos.min.xml'),
       'utf-8',
@@ -29,8 +31,8 @@ export class AppService {
       '/ServicioSTOCArticulo.asmx',
       xml,
     );
-    const json = xml2json<any>(data);
-    return json;
+    const json = xml2json<ObtenerArticulosDTO>(data);
+    return sanitizeArticle(json);
   }
 
   async requestCustomers(): Promise<ICustomerSanitized[]> {
