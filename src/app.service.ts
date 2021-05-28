@@ -37,7 +37,7 @@ export class AppService {
     return sanitizeArticle(json);
   }
 
-  async requestCustomers(): Promise<any> {
+  async requestCustomers(): Promise<ICustomerSanitized[]> {
     const xml = fs.readFileSync(
       path.join(__dirname, '../files/obtenerClientes.min.xml'),
       'utf-8',
@@ -47,7 +47,7 @@ export class AppService {
       xml,
     );
     const json = xml2json<ObtenerClientesDTO>(data);
-    // const customers = sanitizeCustomer(json);
-    return json;
+    const customers = sanitizeCustomer(json);
+    return customers;
   }
 }

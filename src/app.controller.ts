@@ -14,7 +14,7 @@ export class AppController {
 
   @HttpCode(HttpStatus.OK)
   @Get('/readCustomers')
-  async requestCustomers(): Promise<any> {
+  async requestCustomers(): Promise<ICustomerSanitized[]> {
     try {
       const response = await this.appService.requestCustomers();
       return response;
