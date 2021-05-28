@@ -37,9 +37,9 @@ export class AppService {
     return sanitizeArticle(json);
   }
 
-  async requestCustomers(): Promise<ICustomerSanitized[]> {
+  async requestCustomers(): Promise<any> {
     const xml = fs.readFileSync(
-      path.join(__dirname, '../files/obtenerClientes.xml'),
+      path.join(__dirname, '../files/obtenerClientes.min.xml'),
       'utf-8',
     );
     const { data } = await this.axiosInstance.post<string>(
@@ -47,7 +47,7 @@ export class AppService {
       xml,
     );
     const json = xml2json<ObtenerClientesDTO>(data);
-    const customers = sanitizeCustomer(json);
-    return customers;
+    // const customers = sanitizeCustomer(json);
+    return json;
   }
 }
