@@ -24,7 +24,7 @@ export class AppService {
     });
   }
 
-  async requestArticles(): Promise<IArticleSanitizedGroup> {
+  async requestArticles(): Promise<ObtenerArticulosDTO> {
     const xml = fs.readFileSync(
       path.join(__dirname, '../files/obtenerArticulos.min.xml'),
       'utf-8',
@@ -34,10 +34,11 @@ export class AppService {
       xml,
     );
     const json = xml2json<ObtenerArticulosDTO>(data);
-    return sanitizeArticle(json);
+    //return sanitizeArticle(json);
+    return json;
   }
 
-  async requestCustomers(): Promise<ICustomerSanitized[]> {
+  async requestCustomers(): Promise<ObtenerClientesDTO> {
     const xml = fs.readFileSync(
       path.join(__dirname, '../files/obtenerClientes.min.xml'),
       'utf-8',
@@ -47,7 +48,7 @@ export class AppService {
       xml,
     );
     const json = xml2json<ObtenerClientesDTO>(data);
-    const customers = sanitizeCustomer(json);
-    return customers;
+    //const customers = sanitizeCustomer(json);
+    return json;
   }
 }
