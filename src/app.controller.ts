@@ -6,7 +6,6 @@ import {
   HttpException,
 } from '@nestjs/common';
 import { AppService } from './app.service';
-import { ICustomerSanitized } from './parser/sanitize.customer';
 
 @Controller()
 export class AppController {
@@ -14,7 +13,7 @@ export class AppController {
 
   @HttpCode(HttpStatus.OK)
   @Get('/readCustomers')
-  async requestCustomers(): Promise<ICustomerSanitized[]> {
+  async requestCustomers(): Promise<any> {
     try {
       const response = await this.appService.requestCustomers();
       return response;
